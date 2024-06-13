@@ -8,13 +8,13 @@ _(Lớp BootCamp Sáng 12 - Năm 2024 - Khoá Front-End)_
 	</picture>
 </div>
 
-## [Buổi 11 - 21] THỰC HÀNH JAVASCRIPT BUỔI 7 - 8
+## [Buổi 11 - 21] THỰC HÀNH JAVASCRIPT BUỔI 9 - 10
 
 # Mục tiêu
 
 1. Tìm hiểu về JavaScript.
 
-2. Thực hành JavaScript - Mảng.
+2. Thực hành JavaScript - Đối Tượng (Object).
 
 <hr>
 
