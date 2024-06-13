@@ -19,13 +19,28 @@
   </head>
 
   <body>
-    <header>
-      <!-- place navbar here -->
-    </header>
-    <main></main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
+    <div class="container" id="baiTap1">
+      <h2>Bài tập hiển thị danh sách phim</h2>
+      <div class="row" id="renderPhim"></div>
+    </div>
+
+    <div class="container" id="baiTap2">
+      <h2>Bài tập hiển thị danh sách người dùng vào bảng</h2>
+      <div class="table-responsive">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Tài khoản</th>
+              <th scope="col">Họ tên</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mã loại người dùng</th>
+            </tr>
+          </thead>
+          <tbody id="tBody"></tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
