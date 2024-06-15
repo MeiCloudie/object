@@ -669,3 +669,158 @@ for (let nguoiDung of arrNguoiDung) {
     `
 }
 tBody.innerHTML = content2
+
+// Object literal
+let hoTen = "Sun Nguyen"
+let sinhVienNam = {
+  namSinh: 2002,
+  hoTen,
+}
+console.log(sinhVienNam)
+
+// Callback function (hàm gọi lại)
+function tinhDiemTrungBinh(chucNang) {
+  let diemToan = 9
+  let diemLy = 7
+  let diemHoa = 5
+
+  let diemTrungBinh = (diemToan + diemLy + diemHoa) / 3
+}
+
+function xepLoaiSinhVien(diemTrungBinh) {
+  if (diemTrungBinh > 7) {
+    console.log("Sinh viên giỏi")
+  } else {
+    console.log("Sinh viên khá")
+  }
+}
+
+function hienThiThongBao(diemTrungBinh) {
+  console.log(`Điểm của thí sinh là ${diemTrungBinh}`)
+}
+
+// tinhDiemTrungBinh(() => {
+//   console.log("Do Ngok");
+// });
+tinhDiemTrungBinh(xepLoaiSinhVien)
+tinhDiemTrungBinh(hienThiThongBao)
+
+let arrDienVien = [
+  "Phương Trang",
+  "Lệ Tổ",
+  "Huỳnh Trần",
+  "Vinh Râu",
+  "Thu Trang",
+]
+
+// tạo ra một function giống hàm map
+function fakeMap(chucNang) {
+  // ở hàm chức năng, nhiệm vụ của hàm sẽ thực hiện nhận vào giá trị phần tử và vị trí index của phần tử đang có trong vòng lặp và trả về một phần tử mới
+  let newArrDienVien = []
+  for (let i = 0; i < arrDienVien.length; i++) {
+    let newDienVien = chucNang(arrDienVien[i], i)
+    newArrDienVien.push(newDienVien)
+  }
+  return newArrDienVien
+}
+
+// fakeMap((item, index) => {
+//   console.log(item)
+//   console.log(index)
+//   return `Diễn viên ${item}`
+// })
+
+let newArrr = fakeMap((item, index) => {
+  console.log(item)
+  console.log(index)
+  return `Diễn viên ${item}`
+})
+console.log(newArrr)
+
+let chucNang = function () {}
+
+// Yêu cầu tạo ra một hàm filter ảo để thực hiện lọc các phần tử trong mảng
+let arrChampion = [
+  {
+    hoTen: "Garen",
+    tanCong: 93,
+    giap: 55,
+    khangPhep: 40,
+  },
+  {
+    hoTen: "Kaisa",
+    tanCong: 80,
+    giap: 30,
+    khangPhep: 35,
+  },
+  {
+    hoTen: "Jhin",
+    tanCong: 109,
+    giap: 35,
+    khangPhep: 30,
+  },
+  {
+    hoTen: "Aatrox",
+    tanCong: 85,
+    giap: 40,
+    khangPhep: 25,
+  },
+]
+
+// Yêu cầu : Thực hiện tạo ra một hàm fakeFilter với công dụng sẽ kiểm tra mảng arrChampion và trả về kết quả mảng mới dựa trên mong muốn của người dùng
+// với hàm fakeFilter sẽ có một tham số là một callback function và tham số đó sẽ nhận vào các hàm được cung cấp bên dưới
+function kiemTraTanCong(item, index) {
+  // kiểm tra nếu tấn công trên 80 thì sẽ nhận  và mảng mới
+  return item.tanCong > 80
+}
+
+function kiemTraKhangPhep(item, index) {
+  // Kiểm tra nếu kháng phép lớn hơn 30 thì sẽ nhận vào mảng mới
+  return item.khangPhep > 30
+}
+
+function fakeFilter(chucNang) {
+  let newArrChampion = []
+  for (let index in arrChampion) {
+    let isValid = chucNang(arrChampion[index], index)
+    if (isValid) {
+      newArrChampion.push(arrChampion[index])
+    }
+  }
+  return newArrChampion
+}
+
+let newArrChampion = fakeFilter(kiemTraTanCong)
+console.log(newArrChampion)
+let newArrChampion2 = fakeFilter(kiemTraKhangPhep)
+console.log(newArrChampion2)
+
+// Lớp đối tượng (OOP)
+// tenXe, loaiXe, giaTien, mauSac
+class XeHoi {
+  // thuộc tính
+  // tenXe = "Merc S680";
+  // loaiXe = "S class";
+  // giaTien = 12000;
+  // mauSac = "Đen huyền";
+
+  // hàm khởi tạo
+  constructor(tenXe, loaiXe, giaTien, mauSac) {
+    console.log(tenXe)
+    this.tenXe = tenXe
+    this.loaiXe = loaiXe
+    this.mauSac = mauSac
+    this.giaTien = giaTien
+  }
+
+  // phương thức
+  hienThiThongSoXe = function () {
+    console.log(
+      `Xe ${this.tenXe} thuộc loại ${this.loaiXe} có giá ${this.giaTien}$ và còn màu ${this.mauSac}`
+    )
+  }
+}
+
+let xeS680 = new XeHoi("G63", "G class", 300000, "Trắng")
+console.log(xeS680)
+xeS680.hienThiThongSoXe()
